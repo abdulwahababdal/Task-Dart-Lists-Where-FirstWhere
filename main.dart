@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 void main(){
 // Lists
 
@@ -26,13 +28,14 @@ print(findOdds(random));
 }
 
 //Where
-List filterVisitors(ages, minAge){
-List<int> legalAge = [];
-ages.forEach((filter){
+//Another Solution 
+/*ages.forEach((filter){
 if (filter>=minAge){
   legalAge.add(filter);
 }
-});
+});*/
+List<int> filterVisitors(List<int>ages,  int minAge){
+List<int> legalAge = ages.where((age) => age >= minAge).toList();
 return legalAge;
 }
 
